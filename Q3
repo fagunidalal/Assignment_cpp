@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cctype> 
+using namespace std;
+
+int main() {
+    string name, newstr = "";
+    bool ispalindrome = true;
+
+    cout << "enter a string: ";
+    getline(cin, name);
+
+    for (char c : name) 
+        if (!isspace(c)) newstr += tolower(c);
+
+    for (int i = 0; i < newstr.length() / 2; i++) 
+        if (newstr[i] != newstr[newstr.length() - i - 1]) {
+            ispalindrome = false;
+            break;
+        }
+
+    cout << (ispalindrome ? "string is palindrome" : "string is not palindrome");
+
+    return 0;
+}
