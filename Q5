@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int i, j;
+    int arr[3][3];
+
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            cout << "enter the element: ";
+            cin >> arr[i][j];
+        }
+    }
+
+    cout << "\ninput matrix:\n";
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            cout << left << setw(5) << arr[i][j];
+        }
+        cout << endl;
+    }
+
+    cout << "\nmatrix after 90 degree rotation:\n";
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            cout << left << setw(5) << arr[3 - j - 1][i];
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
