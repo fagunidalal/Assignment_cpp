@@ -1,0 +1,55 @@
+#include <iostream>
+#include <climits>
+using namespace std;
+
+int main() {
+    int n;
+
+    cout << "enter the size of the array: ";
+    cin >> n;
+
+    if (n < 2) {
+        cout << "enter array of atleast 2 size\n";
+        return 0;
+    }
+
+    int arr[n];
+
+    for (int i = 0; i < n; i++) {
+        cout << "enter the array element " << i << ": ";
+        cin >> arr[i];
+    }
+
+    int max = INT_MIN, secondMax = INT_MIN;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > max) {
+            secondMax = max;
+            max = arr[i];
+        } else if (arr[i] > secondMax && arr[i] < max) {
+            secondMax = arr[i];
+        }
+    }
+
+    if (secondMax == INT_MIN) {
+        cout << "no distinct second maximum element found.\n";
+    } else {
+        cout << "the second max number is: " << secondMax << endl;
+    }
+
+    // reverse the array
+    for (int i = 0; i < n / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+
+    // display reversed array
+    cout << "the reversed array is: ";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
